@@ -15,8 +15,15 @@ import { SignIn, SignOut } from 'auth-astro/components';
 	<main>
 		<button id="login">Login</button>
 
-		<SignIn provider="discord" />
-    <SignOut />
+		<script>
+			const { signIn, signOut } = await import("auth-astro/client")
+			
+			const $login = $("#login")
+			const $logout = $("logout")
+
+			$login.onclick = () => signIn()
+			$logout.onclick = () => signOut()
+		</script>
 
 	</main>
 </Layout>
