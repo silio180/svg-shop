@@ -16,5 +16,8 @@
     "astro": "^4.6.3",
     "auth-astro": "^4.1.1",
     "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.29"
   }
 }
