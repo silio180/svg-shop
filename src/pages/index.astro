@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import { SignIn, SignOut } from 'auth-astro/components';
+---
+
+<Layout title="Welcome to Astro.">
+	<header>
+			<div class="head">
+				<a href="/">SVG SHOP</a>
+			</div>
+			<button id="logout">Logout</button>
+	</header>
+	<hr>
+	<main>
+		<button id="login">Login</button>
+
+		<SignIn provider="discord" />
+    <SignOut />
+
+	</main>
+</Layout>
+
+<style>
+	.head {
+		text-align: center;
+		padding: 5px;
+
+	}
+	a {
+		color: rgb(255, 0, 212);
+		text-decoration: none;
+	}
+	hr {
+		border-color: rgb(255, 0, 212);
+	}
+	header {
+		font-family: "GraffitiBubble";
+		font-size: 150px;
+
+	}
+	#logout {
+		align-items: right: inherit;
+	}
+</style>
+
+
+		
