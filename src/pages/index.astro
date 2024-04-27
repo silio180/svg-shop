@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import { SignIn, SignOut } from 'auth-astro/components';
+import { getSession } from 'auth-astro/server';
 ---
 
 <Layout title="Welcome to Astro.">
@@ -17,11 +18,11 @@ import { SignIn, SignOut } from 'auth-astro/components';
 
 		<script>
 			const { signIn, signOut } = await import("auth-astro/client")
-			
+				
 			const $login = $("#login")
 			const $logout = $("logout")
 
-			$login.onclick = () => signIn()
+			$login.onclick = () => signIn("discord")
 			$logout.onclick = () => signOut()
 		</script>
 
