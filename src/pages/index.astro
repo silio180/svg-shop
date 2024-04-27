@@ -3,6 +3,10 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import { SignIn, SignOut } from 'auth-astro/components';
 import { getSession } from 'auth-astro/server';
+
+const session = await getSession(Astro.request)
+
+
 ---
 
 <Layout title="Welcome to Astro.">
@@ -10,21 +14,22 @@ import { getSession } from 'auth-astro/server';
 			<div class="head">
 				<a href="/">SVG SHOP</a>
 			</div>
-			<button id="logout">Logout</button>
+			
 	</header>
 	<hr>
 	<main>
-		<button id="login">Login</button>
+		
 
-		<script>
-			const { signIn, signOut } = await import("auth-astro/client")
-				
-			const $login = $("#login")
-			const $logout = $("logout")
-
-			$login.onclick = () => signIn("discord")
-			$logout.onclick = () => signOut()
-		</script>
+		{
+			session ? (
+				<div>
+					<p>!Hola, {session.user?.name}!</p>
+					<button id="logout" >Logout</button>
+				</div>
+			)
+			:
+			<button id="login" >Login</button>
+		}
 
 	</main>
 </Layout>
@@ -53,4 +58,29 @@ import { getSession } from 'auth-astro/server';
 </style>
 
 
-		
+	<script>
+	import { signIn, signOut } from 'auth-astro/client'; // Importa las funciones de autenticación
+        document.getElementById("login")!.onclick = async () => {
+    try {
+        await signIn('discord'); // Inicia sesión con Discord
+        // Aquí puedes añadir lógica adicional después de iniciar sesión exitosamente
+	} catch (error) {
+        console.error('Error al iniciar sesión:', error);
+        // Manejar errores de inicio de sesión aquí
+    }
+    };
+    // Maneja el click en el botón de logout
+	</script>	
+	
+	<script>
+		import { signIn, signOut } from 'auth-astro/client'; // Importa las funciones de autenticación
+		document.getElementById("logout")!.onclick = async () => {
+    try {
+        await signOut(); // Cierra sesión
+        // Aquí puedes añadir lógica adicional después de cerrar sesión exitosamente
+    } catch (error) {
+        console.error('Error al cerrar sesión:', error);
+        // Manejar errores de cierre de sesión aquí
+    }
+    };
+	</script>
