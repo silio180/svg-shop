@@ -16,9 +16,7 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
-		<slot />
-	</body>
+	
 </html>
 <style is:global>
 	:root {
@@ -37,11 +35,21 @@ const { title } = Astro.props;
 		src: url(/fonts/GraffitiBubble-DemoVersion-Regular.ttf);
 		font-style: normal;
 	}
+	@font-face {
+		font-family: PeterQuincy;
+		src: url(/fonts/Peter Quincy Sans.otf);
+		font-style: normal;
+		}
+	
+
+		
 	html {
 		font-family: system-ui, sans-serif;
-		background-color: rgb(53, 53, 53);
+		background-color: white;
 		background-size: 224px;
 	}
+	
+
 	code {
 		font-family:
 			Menlo,
@@ -54,3 +62,5 @@ const { title } = Astro.props;
 			monospace;
 	}
 </style>
+
+<script src="https://kit.fontawesome.com/8f2e26be6e.js" crossorigin="anonymous"></script>
