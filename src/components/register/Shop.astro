@@ -1,0 +1,36 @@
+---
+import { SignIn, SignOut } from 'auth-astro/components';
+import { getSession } from 'auth-astro/server';
+
+const session = await getSession(Astro.request)
+---
+
+
+
+    <section class="shop">
+        <p>Hola, {session.user?.name}!</p>
+        <button id="logout">Cerrar sesion</button>
+    </section>
+
+
+
+    <style>
+        .shop{
+            text-align: center;
+            color: white;
+            font-family: PeterQuincy;
+            font-size: 35px;
+        }
+    </style>
+<script>
+    import { signIn, signOut } from 'auth-astro/client'; // Importa las funciones de autenticación
+    document.getElementById("logout")!.onclick = async () => {
+try {
+    await signOut(); // Cierra sesión
+    // Aquí puedes añadir lógica adicional después de cerrar sesión exitosamente
+} catch (error) {
+    console.error('Error al cerrar sesión:', error);
+    // Manejar errores de cierre de sesión aquí
+}
+};
+</script>

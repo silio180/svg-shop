@@ -1,0 +1,45 @@
+---
+
+---
+
+
+
+    <section class="intro">
+        <div class="introtxt">DESCUBRE LA MEJOR TIENDA </div>
+        <button id="login" >Iniciar sesion</button>
+
+    </section>
+
+
+<script>
+	import { signIn, signOut } from 'auth-astro/client'; // Importa las funciones de autenticación
+        document.getElementById("login")!.onclick = async () => {
+    try {
+        await signIn('discord'); // Inicia sesión con Discord
+        // Aquí puedes añadir lógica adicional después de iniciar sesión exitosamente
+	} catch (error) {
+        console.error('Error al iniciar sesión:', error);
+        // Manejar errores de inicio de sesión aquí
+    }
+    };
+    // Maneja el click en el botón de logout
+	</script>	
+
+    <style>
+        .intro{
+            text-align: center;
+            padding: 5px;
+            margin: 10px;
+        }
+
+        .introtxt{
+		text-align: center;
+        font-family: PeterQuincy;
+        color: white;
+        font-size: 35px;
+        margin: 5px;
+        
+
+	}
+    
+    </style>
