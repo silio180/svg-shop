@@ -8,7 +8,7 @@ const session = await getSession(Astro.request)
 
 
     <section class="shop">
-        <p>Hola, {session.user?.name}!</p>
+        <p>Hola, {session && session.user ? session.user.name : 'Usuario'}!</p>
         <button id="logout">Cerrar sesion</button>
     </section>
 
