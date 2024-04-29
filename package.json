@@ -8,6 +8,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro"
+
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
@@ -21,3 +22,4 @@
     "@types/jquery": "^3.5.29"
   }
 }
+
