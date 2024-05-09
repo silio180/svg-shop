@@ -16,9 +16,67 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	
+	<header>
+		<div>
+			<input type="checkbox" class="checkbox" id="checkbox">
+			<label for="checkbox" class="label">
+				<i class="fas fa-moon"></i>
+				<i class="fas fa-sun"></i>
+				<div class="ball"></div>
+			</label>
+		</div>
+		<div class="head">
+				<a href="/">SVG SHOP</a>
+			</div>
+	</header>
+	<body>
+		<slot/>
+	</body>
 </html>
 <style is:global>
+	.label{
+		background-color: #111;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 5px;
+		border-radius: 50px;
+		position: relative;
+		height: 26px;
+		width: 49px;
+		margin: 1px;
+	}
+	.fa-moon{
+		color: #f1c40f;
+	}
+	.fa-sun{
+		color: #f39c12;
+	}
+	.ball{
+		background-color: #fff;
+		border-radius: 50%;
+		position: absolute;
+		height: 26px;
+		width: 26px;
+		transform: translateX(24px);
+		transition: transform 0.2s linear;
+	}
+	.checkbox{
+		opacity: 0;
+		position: absolute;
+	}
+	.checkbox:checked + .label .ball{
+		transform: translateX(0px);
+
+	}
+		span{
+			width: 30px;
+			height: 30px;
+			line-height: 30px;
+			display: block;
+			background: none;
+			color: #fff
+		}
 	:root {
 		--accent: 136, 58, 234;
 		--accent-light: 224, 204, 250;
@@ -45,11 +103,9 @@ const { title } = Astro.props;
 		
 	html {
 		font-family: system-ui, sans-serif;
-		background-color: white;
 		background-size: 224px;
 	}
 	
-
 	code {
 		font-family:
 			Menlo,
@@ -61,6 +117,32 @@ const { title } = Astro.props;
 			Courier New,
 			monospace;
 	}
+	.head {
+		text-align: center;
+		padding: 5px;
+		font-size: 150px;
+		font-family: "GraffitiBubble";
+	}
+	header {
+		background-color: rgb(255, 0, 212);
+		padding: 10px;
+	}
+	a {
+		color: black;
+		text-decoration: none;
+	}
+		body{
+		background-color: #515151;
+		color: white;
+		transition: linear .5s;
+	}
+	body.light{
+		background-color: white;
+		color: black;
+		transition: linear .5s;
+	}
+
 </style>
 
 <script src="https://kit.fontawesome.com/8f2e26be6e.js" crossorigin="anonymous"></script>
+<script src="../layouts/darkmode.js"></script>
