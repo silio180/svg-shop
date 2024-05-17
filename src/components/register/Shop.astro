@@ -32,26 +32,25 @@ const session = await getSession(Astro.request)
     <nav>
         <ul class="nav-links">
             <li>
-                <a href="/Twitch">Twitch</a>
+                <a  href="/Hombre">Hombres</a>
             <li>
-                <a href="/Discord">Discord</a>
+                <a href="/Mujer">Mujeres</a>
             </li>
             <li>
-                <a href="/RRSS">RRSS</a>
+                <a href="/Niños">Niños</a>
             </li>
             <li>
-                <a href="/StreamingAcc">Streaming Accounts</a>
+                <a href="/Ofertas">Ofertas</a>
             </li>
         </ul>
     </nav>
     <a href="#" class="btn"><button class="button"><i class="fa-solid fa-message"></i></i></button></a>
 </header>
 
-
+    <script src="../register/hover.js"></script>
 
 
     <style>
-
         .logout{
             padding: 15px 25px;
             font-size: 16px;
@@ -76,7 +75,7 @@ const session = await getSession(Astro.request)
         }
         .header .nav-links li{
             display: inline-block;
-            padding: 0 70px;
+            padding: 0 90px;
             font-family: PeterQuincy;
             transition: all .3s;
         }
@@ -126,7 +125,7 @@ const session = await getSession(Astro.request)
             justify-content: space-between;
             align-items: center;
             height: 100px;
-            padding: 10px 10%;
+            padding: 10px 5%;
         }
         .session.user.name{
             color: red;
@@ -192,7 +191,7 @@ const session = await getSession(Astro.request)
         .dropdown{
             height: 300px;
             margin-top: 230px;
-            margin-right: 1175px;
+            margin-right: 1265px;
             position: absolute;
             border: 4px solid white;
             background: rgb(0,0,0);
