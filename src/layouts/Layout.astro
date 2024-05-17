@@ -7,12 +7,12 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="ES/EN">
+<html lang="es">
 	<head>
-		<meta charset="ISO-8859-1/UTF-8/ISO-8859-5" />
+		<meta charset="UTF-8" />
 		<meta name="description" content="IvanDev" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/png" sizes="16x16" href="../images/SVG-SHOP.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="../images/SVG-SHOP-_1_.webp">
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
@@ -93,13 +93,17 @@ const { title } = Astro.props;
 		src: url(/fonts/GraffitiBubble-DemoVersion-Regular.ttf);
 		font-style: normal;
 	}
-	@font-face {
+		@font-face {
 		font-family: PeterQuincy;
 		src: url(/fonts/Peter Quincy Sans.otf);
 		font-style: normal;
 		}
 	
-
+		@font-face {
+			font-family: ZT;
+			src: url(/fonts/ZTChintzy-Heavy);
+			font-style: normal;
+		}
 		
 	html {
 		font-family: system-ui, sans-serif;
