@@ -32,7 +32,7 @@ const session = await getSession(Astro.request)
     <nav>
         <ul class="nav-links">
             <li>
-                <a  href="/Hombre">Hombres</a>
+                <a href="/Hombre">Hombres</a>
             <li>
                 <a href="/Mujer">Mujeres</a>
             </li>
@@ -70,9 +70,7 @@ const session = await getSession(Astro.request)
             font-weight: 700;
             transform: scale(1.1);
         }
-        .header .nav-links{
-            list-style: none;
-        }
+        
         .header .nav-links li{
             display: inline-block;
             padding: 0 90px;
@@ -86,9 +84,16 @@ const session = await getSession(Astro.request)
         .header .nav-links a{
             font-size: 30px;
             color: black;
+            transition: color .3s, font-size .3s;
             text-decoration: none;
-            transition: all .3s;
         }
+        .header .nav-links a:hover{
+            font-size: 30px;
+            color: black;
+            transition: color .3s, font-size .3s, text-decoration-color .1s;
+            text-decoration: underline;
+            text-decoration-color: white;
+                }
         .header .nav-links li a:hover{
             color: #515151;
             transition: all .3s;
