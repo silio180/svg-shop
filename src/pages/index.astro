@@ -1,9 +1,9 @@
 ---
 import { getSession } from 'auth-astro/server';
 
-import Shop from "../components/register/Shop.astro";
+import Shop from "./Shop.astro";
 import Layout from "./Layout.astro";
-import Intro from '../components/register/Intro.astro';
+import Intro from './Intro.astro';
 
 const session = await getSession(Astro.request)
 ---
