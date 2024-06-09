@@ -1,0 +1,44 @@
+---
+import { getSession } from 'auth-astro/server';
+
+import Shop from "../components/register/Shop.astro";
+import Layout from "../layouts/Layout.astro";
+import Intro from '../components/register/Intro.astro';
+
+const session = await getSession(Astro.request)
+---
+
+<Layout title="Bienvenido a SVG SHOP">
+	
+	<hr>
+	<body>
+		<main>
+		
+		{session == null ? <Intro /> : <Shop /> }
+		
+		</main>
+	</body>
+</Layout>
+
+<style>
+	
+	hr {
+		border: 1px solid rgb(255, 0, 212)
+	}
+
+	#logout {
+		align-items: right: inherit;
+	}
+	
+	.log {
+		text-align: center;
+		margin-top: 50px;
+		margin-bottom: 50px;
+		margin-left: 800px;
+		margin-right: 800px;
+		background-color: #515151;
+		border-radius: 7px;
+		padding: 17px;
+		border: 3px solid rgb(255, 0, 212)
+	}
+

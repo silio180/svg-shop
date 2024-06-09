@@ -1,0 +1,251 @@
+---
+import { SignIn, SignOut } from 'auth-astro/components';
+import { getSession } from 'auth-astro/server';
+import Layout from '../../layouts/Layout.astro';
+
+const session = await getSession(Astro.request)
+---
+
+<header class="header">
+    <div class="logo">
+        <nav class="nav">
+            <div class="nav_container">
+                <a href="#menu" class="nav_menu">
+                    <img src="../public/images/SVG-SHOP.webp" class="nav_icon">
+                </a>
+                <a href="#" class="nav_menu nav_menu_second">
+                    <img src="../public/images/close.webp" class="nav_icon">
+                </a>
+            
+                <ul class="dropdown" id="menu">
+                    <li class="dropdown_list">
+                        <img class="profile_image" src={session && session.user ? session.user.image : '/path_to_default_image.jpg'} alt="Imagen de usuario">
+                        <p class="shop">Sesion iniciada como {session && session.user ? session.user.name : 'Usuario' }!</p>
+                    </li>
+                    <li class="dropdown_list1">
+                        <button class="logout"id="logout">Cerrar sesion</button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <nav>
+        <ul class="nav-links">
+            <li>
+                <a href="/Hombre">Hombres</a>
+            <li>
+                <a href="/Mujer">Mujeres</a>
+            </li>
+            <li>
+                <a href="/Niños">Niños</a>
+            </li>
+            <li>
+                <a href="/Ofertas">Ofertas</a>
+            </li>
+        </ul>
+    </nav>
+    <a href="#" class="btn"><button class="button"><i class="fa-solid fa-message"></i></i></button></a>
+</header>
+
+    <script src="../register/hover.js"></script>
+
+
+    <style>
+        .logout{
+            padding: 15px 25px;
+            font-size: 16px;
+            border: 5px solid rgb(255, 0, 212);
+            color: white;
+            cursor: pointer	;
+            font-family: PeterQuincy;
+            font-size: 30px;
+            background: linear-gradient(to left, #515151 50%, rgb(255, 0, 212) 50%);
+            background-size: 200%;
+            background-position: right;
+            transition: .6s;
+        }
+        .logout:hover{
+            background-position: left;
+            color: black;
+            font-weight: 700;
+            transform: scale(1.1);
+        }
+        
+        .header .nav-links li{
+            display: inline-block;
+            padding: 0 90px;
+            font-family: PeterQuincy;
+            transition: all .3s;
+        }
+        .header .nav-links li:hover{
+            transform: scale(1.1);
+            transition: all .3s;
+        }
+        .header .nav-links a{
+            font-size: 30px;
+            color: black;
+            transition: color .3s, font-size .3s;
+            text-decoration: none;
+        }
+        .header .nav-links a:hover{
+            font-size: 30px;
+            color: black;
+            transition: color .3s, font-size .3s, text-decoration-color .1s;
+            text-decoration: underline;
+            text-decoration-color: white;
+                }
+        .header .nav-links li a:hover{
+            color: #515151;
+            transition: all .3s;
+        }
+        .header .btn button{
+            font-weight: 35px;
+            color: black;
+            padding: 9px 25px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all .3s ease 0s;
+        }
+        .header .btn button:hover{
+            color: #515151;
+            transform: scale(1.1);
+            }
+        .button{
+            background-color: transparent;
+            border: none;
+        }
+        .fa-solid{
+            font-size: 35px;
+            padding: 20px;
+            border-radius:50% ;
+            background-color: white;
+        }
+        .fa-solid:hover{
+            background: linear-gradient(145deg, blue , white 180%);
+            transition: all .3s;
+        }
+        .header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100px;
+            padding: 10px 5%;
+        }
+        .session.user.name{
+            color: red;
+        }
+        .profile_image{
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            margin: 30px;
+        }
+        .nav{
+            padding: 5px;
+            --img1: scale(1);
+            --img2: scale(0);
+        }
+        .nav:has(.dropdown:target){
+            --img1: scale(0);
+            --img2: scale(1);
+
+            --clip:inset(0 0 0 0 );
+        }
+    
+        .nav_container{
+            width: 90%;
+            margin: 0 auto;
+            height: 70px;
+            padding: 10px;
+
+            display:  grid;
+            grid-template-columns:  max-content max-content;
+            grid-template-areas: "title img";
+            justify-content: space-between;
+            align-items: center;
+
+            overflow: hidden;
+        }
+        .nav_title{
+            color: white;
+            grid-area: title;
+
+        }
+        .nav_menu{
+            grid-area: img;
+            position: relative;
+            z-index: 10;
+
+            transform: var(--img1);
+        }
+        .nav_menu_second{
+            transform: var(--img2);
+        }
+
+        .nav_icon{
+            width: 130px;
+            display: block;
+            margin: -15px;
+            transition: all .4s;
+        }
+        .nav_icon:hover{
+            transform: scale(1.1);
+            transition: all .4s;
+        }
+        .dropdown{
+            height: 300px;
+            margin-top: 230px;
+            margin-right: 1265px;
+            position: absolute;
+            border: 4px solid white;
+            background: rgb(0,0,0);
+            background: linear-gradient(180deg, rgba(0,0,0,1) , rgba(81,81,81,1) 100%);
+            width: 500px;
+            right: 0;
+            top: 1;
+            bottom: 1;
+            max-width: 600px;
+            padding: 1em;
+            display: grid;
+            gap: 1rem;
+            overflow-y: auto;
+            clip-path: var(--clip, inset(0 100% 100% 0));
+            transition: clip-path .4s;
+            border-radius: 50px;
+            list-style: none        
+        }
+        .dropdown_list{
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            padding-top: 30px;
+            margin-left: 60px;
+            padding-right: 20px;
+        }
+        .dropdown_list1{
+            text-align: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            position: relative;
+        }
+        .shop{
+            text-align: center;
+            font-family: PeterQuincy;
+            max-width: 350px;
+            font-size: 35px;
+
+        }
+    </style>
+<script>
+    import { signIn, signOut } from 'auth-astro/client'; // Importa las funciones de autenticación
+    document.getElementById("logout")!.onclick = async () => {
+try {
+    await signOut(); // Cierra sesión
+    // Aquí puedes añadir lógica adicional después de cerrar sesión exitosamente
+} catch (error) {
+    console.error('Error al cerrar sesión:', error);
+    // Manejar errores de cierre de sesión aquí
+}
+};
+</script>
