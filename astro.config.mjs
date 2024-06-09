@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import vercel from '@astrojs/vercel/serverless';
+import netlify from '@astrojs/netlify';
 import auth from "auth-astro";
 
 import vercel from "@astrojs/vercel/serverless";
@@ -8,5 +8,5 @@ import vercel from "@astrojs/vercel/serverless";
 export default defineConfig({
   integrations: [auth()],
   output: "server",
-  adapter: vercel()
+  adapter: netlify(),
 });
