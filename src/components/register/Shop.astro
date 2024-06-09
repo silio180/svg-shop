@@ -1,7 +1,7 @@
 ---
 import { SignIn, SignOut } from 'auth-astro/components';
 import { getSession } from 'auth-astro/server';
-import Layout from '../../pages/Layout.astro';
+import Layout from '../../layouts/Layout.astro';
 
 const session = await getSession(Astro.request)
 ---
