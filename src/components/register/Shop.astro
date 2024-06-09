@@ -1,7 +1,7 @@
 ---
 import { SignIn, SignOut } from 'auth-astro/components';
 import { getSession } from 'auth-astro/server';
-import Layout from './Layout.astro';
+import Layout from '../../layouts/Layout.astro';
 
 const session = await getSession(Astro.request)
 ---
@@ -47,7 +47,7 @@ const session = await getSession(Astro.request)
     <a href="#" class="btn"><button class="button"><i class="fa-solid fa-message"></i></i></button></a>
 </header>
 
-    <script src="../register/hover.js"></script>
+    <script src="./hover.js"></script>
 
 
     <style>
