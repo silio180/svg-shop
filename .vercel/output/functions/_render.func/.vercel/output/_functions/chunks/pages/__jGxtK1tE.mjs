@@ -1,7 +1,6 @@
 import { Auth } from '@auth/core';
 import { parseString } from 'set-cookie-parser';
 import Discord from '@auth/core/providers/discord';
-import cookie from 'cookie';
 
 const defineConfig = (config) => {
   config.prefix ??= "/api/auth";
