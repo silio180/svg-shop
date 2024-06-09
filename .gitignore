@@ -1,8 +1,4 @@
 # build output
-dist/
-
-# generated types
-.astro/
 
 # dependencies
 node_modules/
@@ -19,10 +15,3 @@ pnpm-debug.log*
 .env.local
 .env.demo
 
-# macOS-specific files
-.DS_Store
-
-# jetbrains setting folder
-.idea/
-
-mongodb.js
